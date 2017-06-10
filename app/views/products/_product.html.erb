@@ -1,0 +1,24 @@
+<% description_addition ||= "" %>
+<% context_is_product ||= false %>
+
+<div class="media-container">
+  <%= link_to (context_is_product ? product.primary_photo : product) do %>
+    <img class="media-element" src="<%= product.primary_photo.image.url %>" alt="">
+  <% end %>
+
+  <div class="media-info">
+    <% unless context_is_product %>
+      <h2><%= link_to product.name, product %></h2>
+    <% end %>
+
+    <div class="product-price">Price: <%= number_to_currency(product.price) %></div>
+    <% product.tags.each do |tag| %>
+      <%= link_to tag.name, tag, class: 'tag' %>
+    <% end %>
+
+    <div class="product-description">
+      <%= product.description.html_safe %>
+      <%= description_addition.html_safe %>
+    </div>
+  </div>
+</div>

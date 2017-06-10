@@ -1,0 +1,9 @@
+<% content_for :title, 'Photo Gallery' %>
+
+<div class="thumbnails">
+  <% @photos.each do |photo| %>
+    <%= link_to photo do %>
+      <img class="thumbnail" src="<%= photo.image.url %>" alt="<%= photo.description %>">
+    <% end %>
+  <% end %>
+</div>

@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Inflatedarrangements</title>
-    <%= csrf_meta_tags %>
+<%= render "shared/header" %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<main class="flex">
+  <div class="main-column">
+    <h1><%= yield :title %></h1>
+    <div class="main-content">
+      <%= yield %>
+    </div>
+  </div>
+  <div class="sidebar">
+    <a href="/"><img class="sidebar-logo" src="/assets/logo.png" alt="Home"></a>
+    <a href="/products">products</a>
+    <a href="/photos">photo gallery</a>
+    <a href="/contact">contact us</a>
+    <%= render "shared/facebook_follow" %>
+  </div>
+</main>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<%= render "shared/footer" %>

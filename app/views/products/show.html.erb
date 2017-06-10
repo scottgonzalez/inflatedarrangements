@@ -1,0 +1,14 @@
+<% product = @product %>
+<% content_for :title, product.name %>
+
+<%= render "product", product: product, context_is_product: true %>
+
+<% if product.secondary_photos.any? %>
+  <div class="thumbnails">
+    <% product.secondary_photos.each do |photo| %>
+      <%= link_to photo do %>
+        <img class="thumbnail" src="<%= photo.image.url %>" alt="">
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<% content_for :title, "All Products" %>
+
+<% @products.each do |product| %>
+  <%
+    secondary_photo_count = product.secondary_photos.count
+    description_addition =
+      if secondary_photo_count > 0
+        photo_plural = secondary_photo_count == 1 ? "photo" : "photos"
+        link_to "View #{secondary_photo_count} more #{photo_plural}", product, class: "action"
+      else
+        ""
+      end
+  %>
+  <%= render "product", product: product, description_addition: description_addition %>
+<% end %>
