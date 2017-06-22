@@ -2,8 +2,8 @@
 
 one:
   photo: one
-  tag: one
+  category: one
 
 two:
   photo: two
-  tag: two
+  category: two

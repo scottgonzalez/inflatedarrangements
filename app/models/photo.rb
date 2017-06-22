@@ -1,11 +1,11 @@
 class Photo < ApplicationRecord
   mount_uploader :image, ImageUploader
 
+  has_many :photo_categories
   has_many :product_photos
-  has_many :photo_tags
 
+  has_many :categories, through: :photo_categories
   has_many :products, through: :product_photos
-  has_many :tags, through: :photo_tags
 
   validates :description, presence: true
   validates :image, presence: true

@@ -5,8 +5,8 @@
     <h2><%= link_to product.name, product %></h2>
 
     <span class="visually-hidden">Categories:</span>
-    <% product.tags.each do |tag| %>
-      <%= link_to tag.name, tag, class: 'tag' %>
+    <% product.categories.each do |category| %>
+      <%= link_to category.name, category, class: 'category' %>
     <% end %>
   <% end %>
 

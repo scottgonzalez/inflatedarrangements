@@ -10,15 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325202700) do
+ActiveRecord::Schema.define(version: 20170622013919) do
 
-  create_table "photo_tags", force: :cascade do |t|
-    t.integer  "photo_id"
-    t.integer  "tag_id"
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["photo_id"], name: "index_photo_tags_on_photo_id"
-    t.index ["tag_id"], name: "index_photo_tags_on_tag_id"
+  end
+
+  create_table "photo_categories", force: :cascade do |t|
+    t.integer  "photo_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_photo_categories_on_category_id"
+    t.index ["photo_id"], name: "index_photo_categories_on_photo_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -28,6 +34,15 @@ ActiveRecord::Schema.define(version: 20170325202700) do
     t.string   "description", default: "", null: false
     t.integer  "width"
     t.integer  "height"
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.integer  "product_id",  null: false
+    t.integer  "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_product_categories_on_category_id"
+    t.index ["product_id"], name: "index_product_categories_on_product_id"
   end
 
   create_table "product_photos", force: :cascade do |t|
@@ -40,27 +55,12 @@ ActiveRecord::Schema.define(version: 20170325202700) do
     t.index ["product_id"], name: "index_product_photos_on_product_id"
   end
 
-  create_table "product_tags", force: :cascade do |t|
-    t.integer  "product_id", null: false
-    t.integer  "tag_id",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_product_tags_on_product_id"
-    t.index ["tag_id"], name: "index_product_tags_on_tag_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description"
     t.float    "price",       null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

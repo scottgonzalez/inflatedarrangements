@@ -1,0 +1,5 @@
+<% content_for :title, @category.name %>
+
+<% @category.products.each do |product| %>
+  <%= render "products/product", product: product %>
+<% end %>

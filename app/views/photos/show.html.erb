@@ -7,8 +7,8 @@
 <div class="<%= container_class %>">
   <img class="media-element" src="<%= @photo.image.url %>" alt="">
   <div class="media-info">
-    <% @photo.tags.each do |tag| %>
-      <%= link_to tag.name, tag, class: 'tag' %>
+    <% @photo.categories.each do |category| %>
+      <%= link_to category.name, category, class: 'category' %>
     <% end %>
 
     <p>Products featured in this photo:</p>
