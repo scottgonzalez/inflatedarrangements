@@ -2,7 +2,7 @@ html {
   min-height: 100%;
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 20px;
-  line-height: 1.5rem;
+  line-height: 1.5em;
   color: #494a4d;
 }
 
@@ -24,21 +24,18 @@ footer {
 
 h1 {
   text-align: center;
-}
-
-h1,
-h2 {
   margin: 0 0 2rem 0;
 }
 
-a,
-a:link {
-  color: #23408f;
-  transition: 0.5s;
+h2 {
+  margin: 1rem 0;
 }
 
+a,
+a:link,
 a:visited {
   color: #a37fa2;
+  transition: 0.5s;
 }
 
 a:hover,
@@ -135,7 +132,8 @@ li:before {
 }
 
 .media-element {
-  height: 20rem;
+  width: 14rem;
+  height: 100%;
 }
 
 .media-info {
@@ -145,12 +143,14 @@ li:before {
 
 .media-wide {
   flex-direction: column;
+  max-width: 35rem;
+  margin: 1em auto;
 
   .media-element,
   .media-info {
     width: 100%;
-    max-width: 35rem;
-    align-self: center;
+    // max-width: 35rem;
+    // align-self: center;
   }
 
   .media-element {
@@ -201,4 +201,19 @@ li:before {
 
 .thumbnail {
   height: 10rem;
+}
+
+// From H5BP
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }

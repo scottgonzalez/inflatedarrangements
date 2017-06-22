@@ -1,0 +1,12 @@
+<% link ||= nil %>
+
+<div class="media-container">
+  <% media_element = capture do %>
+    <img class="media-element" src="<%= media.url %>" alt="">
+  <% end %>
+  <%= link ? link_to(media_element, link) : media_element %>
+
+  <div class="media-info">
+    <%= info.html_safe %>
+  </div>
+</div>

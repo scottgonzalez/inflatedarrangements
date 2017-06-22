@@ -1,7 +1,7 @@
 <% product = @product %>
 <% content_for :title, product.name %>
 
-<%= render "product", product: product, context_is_product: true %>
+<%= render "product", product: product %>
 
 <% if product.secondary_photos.any? %>
   <div class="thumbnails">
