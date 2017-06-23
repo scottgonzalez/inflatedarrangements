@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.order(:name)
   end
 
   def show
     @category = Category.find params[:id]
+    @other_categories = Category.where.not(id: params[:id]).sort_by(&:photo_count)
   end
 end

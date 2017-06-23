@@ -139,6 +139,10 @@ li:before {
 .media-info {
   flex-grow: 1;
   margin-left: 1rem;
+
+  > :first-child {
+    margin-top: 0;
+  }
 }
 
 .media-wide {
@@ -164,7 +168,13 @@ li:before {
 }
 
 .product-price {
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
+}
+
+.product-image {
+  display: block;
+  max-height: 20rem;
+  margin: 0 auto;
 }
 
 .category {
@@ -188,6 +198,10 @@ li:before {
   &:active {
     background-color: #23408f;
   }
+}
+
+.category-listing li {
+  margin-bottom: 1em;
 }
 
 .thumbnails {
@@ -241,3 +255,10 @@ html .facebook-follow {
   }
 }
 
+hr {
+  margin: 1rem 0;
+  height: 0.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: url(/assets/gradient.jpg) bottom right no-repeat;
+}

@@ -1,5 +1,10 @@
 <% content_for :title, @category.name %>
 
-<% @category.products.each do |product| %>
-  <%= render "products/product", product: product %>
-<% end %>
+<%= render 'products/listing', products: @category.products %>
+
+<hr>
+
+<p>Looking for something else? Try another category or browse the <a href='/photos'>photo gallery</a>.</p>
+
+<h3>Other Categories</h3>
+<%= render 'listing', categories: @other_categories %>

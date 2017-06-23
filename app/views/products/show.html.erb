@@ -1,14 +1,24 @@
-<% product = @product %>
-<% content_for :title, product.name %>
+<% content_for :title, @product.name %>
 
-<%= render "product", product: product %>
+<div>
+  <span class='visually-hidden'>Categories:</span>
+  <% @product.categories.each do |category| %>
+    <%= link_to category.name, category, class: 'category' %>
+  <% end %>
 
-<% if product.secondary_photos.any? %>
-  <div class="thumbnails">
-    <% product.secondary_photos.each do |photo| %>
-      <%= link_to photo do %>
-        <img class="thumbnail" src="<%= photo.image.url %>" alt="">
+  <div class='product-price'>Price: <%= number_to_currency(@product.price) %></div>
+
+  <img class='product-image' src='<%= @product.primary_photo.image.url %>' alt=''>
+
+  <% if @product.secondary_photos.any? %>
+    <div class='thumbnails'>
+      <% @product.secondary_photos.each do |photo| %>
+        <%= link_to photo do %>
+          <img class='thumbnail' src='<%= photo.image.url %>' alt=''>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+
+  <div><%= @product.description.html_safe %></div>
+</div>

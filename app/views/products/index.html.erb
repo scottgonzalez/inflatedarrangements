@@ -1,17 +1,3 @@
-<% content_for :title, "All Products" %>
+<% content_for :title, 'All Products' %>
 
-<% @products.each do |product| %>
-  <% info = capture do %>
-    <h2><%= link_to product.name, product %></h2>
-
-    <span class="visually-hidden">Categories:</span>
-    <% product.categories.each do |category| %>
-      <%= link_to category.name, category, class: 'category' %>
-    <% end %>
-  <% end %>
-
-  <%=
-    render "shared/media_element",
-    media: product.primary_photo.image, link: product, info: info
-  %>
-<% end %>
+<%= render 'listing', products: @products %>
