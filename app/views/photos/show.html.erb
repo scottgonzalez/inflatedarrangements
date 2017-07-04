@@ -1,21 +1,12 @@
 <% content_for :title, @photo.description %>
 
-<%
-  container_class = "media-container"
-  container_class += " media-wide" if @photo.wide?
-%>
-<div class="<%= container_class %>">
-  <img class="media-element" src="<%= @photo.image.url %>" alt="">
-  <div class="media-info">
-    <% @photo.categories.each do |category| %>
-      <%= link_to category.name, category, class: 'category' %>
-    <% end %>
+<div>
+  <img class='product-image' src='<%= @photo.image.url %>' alt=''>
 
-    <p>Products featured in this photo:</p>
-    <ul>
-      <% @photo.products.each do |product| %>
-        <li><%= link_to product.name, product %></li>
-      <% end %>
-    </ul>
-  </div>
+  <p>Products featured in this photo:</p>
+  <ul>
+    <% @photo.products.each do |product| %>
+      <li><%= link_to product.name, product %></li>
+    <% end %>
+  </ul>
 </div>

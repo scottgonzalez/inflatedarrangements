@@ -1,9 +1,15 @@
 <% content_for :title, 'Photo Gallery' %>
 
-<div class="thumbnails">
+<div class='thumbnails'>
   <% @photos.each do |photo| %>
-    <%= link_to photo do %>
-      <img class="thumbnail" src="<%= photo.image.url %>" alt="<%= photo.description %>">
+    <%= link_to (
+      if photo.products.count == 1
+        product_path(photo.products.first, { photo: photo })
+      else
+        photo
+      end
+    ) do %>
+      <img class='thumbnail' src='<%= photo.image.url %>' alt='<%= photo.description %>'>
     <% end %>
   <% end %>
 </div>

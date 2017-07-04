@@ -17,8 +17,4 @@ class Product < ApplicationRecord
         }
       )
   end
-
-  def secondary_photos
-    @secondary_photos = photos.where.not(id: primary_photo)
-  end
 end

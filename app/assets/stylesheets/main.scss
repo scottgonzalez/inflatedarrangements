@@ -2,7 +2,6 @@ html {
   min-height: 100%;
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 20px;
-  line-height: 1.5em;
   color: #494a4d;
 }
 
@@ -29,6 +28,10 @@ h1 {
 
 h2 {
   margin: 1rem 0;
+}
+
+p {
+  line-height: 1.5
 }
 
 a,
@@ -174,7 +177,7 @@ li:before {
 .product-image {
   display: block;
   max-height: 20rem;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
 }
 
 .category {
@@ -209,7 +212,7 @@ li:before {
   flex-wrap: wrap;
 
   a {
-    margin-right: 1rem;
+    margin: 0 1rem 1rem 0;
   }
 }
 
@@ -234,7 +237,7 @@ li:before {
 
 html .facebook-follow {
   display: inline-block;
-  height: 28px;
+  height: 23px;
   padding: 0 8px;
   border-radius: 4px;
   border: 1px solid #4267b2;
