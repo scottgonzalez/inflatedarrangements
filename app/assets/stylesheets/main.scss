@@ -148,28 +148,6 @@ li:before {
   }
 }
 
-.media-wide {
-  flex-direction: column;
-  max-width: 35rem;
-  margin: 1em auto;
-
-  .media-element,
-  .media-info {
-    width: 100%;
-    // max-width: 35rem;
-    // align-self: center;
-  }
-
-  .media-element {
-    height: auto;
-    margin-bottom: 1rem;
-  }
-
-  .media-info {
-    margin-left: 0;
-  }
-}
-
 .product-price {
   margin: 0.5rem 0;
 }
