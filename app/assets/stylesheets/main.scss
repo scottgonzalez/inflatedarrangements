@@ -64,6 +64,7 @@ li:before {
 .main-column {
   flex-grow: 1;
   margin-left: 1rem;
+  width: 100%; /* Support: IE11 */
 }
 
 .sidebar {
@@ -82,6 +83,20 @@ li:before {
   margin-bottom: 0.5rem;
 }
 
+.links {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.links > * {
+  padding: 0 0.5rem;
+  border-left: 1px solid #a37fa2;
+
+  &:first-child {
+    border-left: none;
+  }
+}
+
 .action-set {
   display: flex;
   flex-direction: column;
@@ -89,6 +104,9 @@ li:before {
 }
 
 .action {
+  font-family: inherit;
+  font-size: inherit;
+  color: #fff;
   background-color: #a37fa2;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
@@ -129,6 +147,52 @@ li:before {
   }
 }
 
+.alert {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #fbb;
+}
+
+label {
+  margin-top: 0.5rem;
+  display: inline-block;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &.required:after {
+    content: '(required)';
+    color: #f00;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+  }
+}
+
+input {
+  width: 100%;
+  max-width: 20rem;
+  font-size: 1rem;
+}
+
+textarea {
+  width: 100%;
+  height: 10rem;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+.labeled-value {
+  margin: 0.5rem 0;
+}
+
 .media-container {
   display: flex;
   margin: 1rem 0;
@@ -146,10 +210,6 @@ li:before {
   > :first-child {
     margin-top: 0;
   }
-}
-
-.product-price {
-  margin: 0.5rem 0;
 }
 
 .product-image {

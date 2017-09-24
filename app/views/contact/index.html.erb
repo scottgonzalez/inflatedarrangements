@@ -1,0 +1,26 @@
+<h1>Contact Us</h1>
+
+<p>Contact us to book your event, discuss ideas, or ask any questions you may have. We'll work with you to create the perfect arrangement for any event.</p>
+
+<div class="labeled-value">Phone: <a href="tel:+17175782208">717-578-2208</a></div>
+<div class="labeled-value">Email: <a href="mailto:scott@inflatedarrangements.com">scott@inflatedarrangements.com</a></div>
+
+<hr>
+
+<h2>Send a Message Now</h2>
+
+<%= form_tag do %>
+  <label for="name">Name:</label>
+  <div><input name="name" id="name" value="<%= @contact_params[:name] %>"></div>
+
+  <label for="email">Email:</label>
+  <div><input name="email" id="email" value="<%= @contact_params[:email] %>"></div>
+
+  <label for="subject">Subject:</label>
+  <div><input name="subject" id="subject" value="<%= @contact_params[:subject] %>"></div>
+
+  <label for="message" class="required">Message:</label>
+  <div><textarea name="message" id="message" required><%= @contact_params[:message] %></textarea></div>
+
+  <button type="submit" class="action">Send Message</button>
+<% end %>

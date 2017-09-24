@@ -16,3 +16,5 @@
 
 # Ignore locally uploaded files.
 /public/uploads/
+
+/config/env.yml

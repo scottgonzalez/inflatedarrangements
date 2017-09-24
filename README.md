@@ -11,6 +11,16 @@ Things you may want to cover:
 
 * Configuration
 
+### Environment Variables
+
+| Name | Description |
+|------|-------------|
+| SMTP_ADDRESS | Host address for the SMTP server. |
+| SMTP_DOMAIN | The domain for the SMTP server. |
+| SMTP_PASSWORD | The password for the SMTP account. |
+| SMTP_PORT | Port for the SMTP server. *(Default: 587)* |
+| SMTP_USER | The user name for the SMTP account. |
+
 * Database creation
 
 * Database initialization
