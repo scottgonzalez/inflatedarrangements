@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  public_actions :index, :show
+
   def index
     @products = Product.all
     @categories = Category.all

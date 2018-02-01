@@ -1,4 +1,6 @@
 class ContactController < ApplicationController
+  public_actions :create, :index
+
   def create
     @contact_params = params.permit(:email, :message, :name, :subject).to_h
 

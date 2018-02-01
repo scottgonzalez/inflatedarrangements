@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  public_actions :index, :show
+
   def index
     @photos = Photo.all
   end

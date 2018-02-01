@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  public_actions :index, :show
+
   def index
     @categories = Category.order(:name)
   end
