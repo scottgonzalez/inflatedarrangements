@@ -62,9 +62,8 @@ li:before {
 }
 
 .main-column {
-  flex-grow: 1;
+  flex: 1 1 100%;
   margin-left: 1rem;
-  width: 100%; /* Support: IE11 */
 }
 
 .sidebar {
