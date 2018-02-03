@@ -3,10 +3,12 @@
 <div>
   <img class='product-image' src='<%= @photo.image.url %>' alt=''>
 
-  <p>Products featured in this photo:</p>
-  <ul>
-    <% @photo.products.each do |product| %>
-      <li><%= link_to product.name, product %></li>
-    <% end %>
-  </ul>
+  <% if @photo.products.any? %>
+    <p>Products featured in this photo:</p>
+    <ul>
+      <% @photo.products.each do |product| %>
+        <li><%= link_to product.name, product %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

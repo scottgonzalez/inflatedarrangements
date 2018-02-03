@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
 
+  accepts_nested_attributes_for :photos
+
   def primary_photo
     @primary_photo ||= photos
       .joins(:product_photos)

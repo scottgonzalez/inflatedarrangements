@@ -1,0 +1,13 @@
+<% if model.errors.any? %>
+  <div class='errors'>
+    <p>
+      <%= pluralize(model.errors.count, 'error') %> prohibited
+      this <%= model.class.model_name.human.downcase %> from being saved:
+    </p>
+    <ul>
+      <% model.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

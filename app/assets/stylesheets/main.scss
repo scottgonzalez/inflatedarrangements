@@ -172,7 +172,16 @@ label {
   }
 }
 
-input {
+.field_with_errors {
+  margin-top: 0.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+input,
+select {
   width: 100%;
   max-width: 20rem;
   font-size: 1rem;
@@ -190,6 +199,22 @@ button {
 
 .labeled-value {
   margin: 0.5rem 0;
+}
+
+.errors {
+  width: 25rem;
+  margin: 0 auto 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #fbb;
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .media-container {
