@@ -1,4 +1,4 @@
-<% content_for :title, 'Create New Product' %>
+<% content_for :title, 'Edit Product' %>
 
 <%= form_for @product do |form| %>
   <%= render 'shared/form_errors', model: @product %>
@@ -17,13 +17,5 @@
     { multiple: true, size: 10 }
   %></div>
 
-  <%= form.fields_for :photos, @photo do |photo_fields| %>
-    <%= photo_fields.label :description, 'Photo Description' %>
-    <div><%= photo_fields.text_field :description %></div>
-
-    <%= photo_fields.label :image %>
-    <div><%= photo_fields.file_field :image %></div>
-  <% end %>
-
-  <button type="submit" class="action">Create Product</button>
+  <button type="submit" class="action">Save Product</button>
 <% end %>

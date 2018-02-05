@@ -1,0 +1,18 @@
+<% content_for :title, 'Edit Photo' %>
+
+<%= form_for @photo do |form| %>
+  <%= render 'shared/form_errors', model: @photo %>
+
+  <%= form.label :description %>
+  <div><%= form.text_field :description %></div>
+
+  <%= form.label :image %>
+  <div><%= form.file_field :image %></div>
+
+  <%= form.label :product_ids, 'Products' %>
+  <div><%= form.select :product_ids, @products, {},
+    { multiple: true, size: 10 }
+  %></div>
+
+  <button type="submit" class="action">Save Photo</button>
+<% end %>
