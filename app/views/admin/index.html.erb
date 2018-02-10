@@ -1,0 +1,52 @@
+<% content_for :title, 'Admin Dashboard' %>
+
+<h2>Customer Messages</h2>
+
+<%= render 'customer_messages/listing', customer_messages: @customer_messages %>
+
+<h2>Products</h2>
+
+<p>There are currently <%= pluralize(@products.size, 'product') %>.</p>
+<a class="action" href="/products/new">Add a new product</a>
+<table>
+  <thead>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product %></td>
+        <td><%= product.price %></td>
+        <td><%= link_to 'Edit', edit_product_url(product) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Categories</h2>
+
+<p>There are currently <%= pluralize(@categories.size, 'category') %>.</p>
+<a class="action" href="/categories/new">Add a new category</a>
+<table>
+  <thead>
+    <th>Category</th>
+    <th># of Products</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, category %></td>
+        <td><%= category.product_count %></td>
+        <td><%= link_to 'Edit', edit_category_url(category) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Photos</h2>
+
+<p>There are currently <%= pluralize @photo_count, 'photo' %>.</p>
+<a class="action" href="/photos/new">Add a new photo</a>

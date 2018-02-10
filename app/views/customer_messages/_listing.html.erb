@@ -1,0 +1,22 @@
+<% if customer_messages.empty? %>
+  <p>There are no customer messages.</p>
+<% else %>
+  <table class="customer-messages">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% customer_messages.each do |customer_message| %>
+        <tr data-href="<%= url_for customer_message %>">
+          <td><%= customer_message.name %></td>
+          <td><%= customer_message.subject %></td>
+          <td><%= time_ago_in_words customer_message.created_at %> ago</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

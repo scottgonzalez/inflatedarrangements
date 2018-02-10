@@ -57,6 +57,22 @@ li:before {
   left: -0.5rem;
 }
 
+table {
+  width: 100%;
+  border: 1px solid #494a4d;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+tr {
+  border: 1px solid #494a4d;
+}
+
+th, td {
+  padding: 0.2rem 0.5rem;
+  text-align: left;
+}
+
 .flex {
   display: flex;
 }
@@ -280,6 +296,10 @@ button {
 
 .thumbnail {
   height: 10rem;
+}
+
+.customer-messages tbody tr {
+  cursor: pointer;
 }
 
 // From H5BP
