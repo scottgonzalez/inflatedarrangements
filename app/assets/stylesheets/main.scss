@@ -1,8 +1,12 @@
 html {
-  min-height: 100%;
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 20px;
-  color: #494a4d;
+  font-size: 125%;
+  color: $black;
+
+  // The document needs to be at least as tall as the viewport so that the
+  // body's background, which is aligned to the bottom, is never floating
+  // in the middle of the screen.
+  min-height: 100%;
 }
 
 body {
@@ -11,9 +15,30 @@ body {
   margin: 1rem 1rem 2rem 1rem;
 }
 
+.body {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include large {
+    flex-direction: row;
+  }
+
+  &.body-home {
+    display: block;
+  }
+}
+
 main {
   margin: 0 auto;
   max-width: 50rem;
+  flex-direction: column-reverse;
+  flex: 1 1 100%;
+
+  @include large {
+    margin-left: 1rem;
+  }
 }
 
 footer {
@@ -24,6 +49,10 @@ footer {
 h1 {
   text-align: center;
   margin: 0 0 2rem 0;
+}
+
+h1 img {
+  max-width: 100%;
 }
 
 h2 {
@@ -37,13 +66,20 @@ p {
 a,
 a:link,
 a:visited {
-  color: #a37fa2;
+  color: $purple;
   transition: 0.5s;
 }
 
 a:hover,
 a:active {
-  color: #479b45;
+  color: $green;
+}
+
+hr {
+  margin: 1rem 0;
+  height: 0.15rem;
+  border: none;
+  background: url(/assets/gradient.jpg) bottom right no-repeat;
 }
 
 ul {
@@ -59,13 +95,13 @@ li:before {
 
 table {
   width: 100%;
-  border: 1px solid #494a4d;
+  border: 1px solid $black;
   border-collapse: collapse;
   margin: 1rem 0;
 }
 
 tr {
-  border: 1px solid #494a4d;
+  border: 1px solid $black;
 }
 
 th, td {
@@ -73,16 +109,22 @@ th, td {
   text-align: left;
 }
 
-.flex {
-  display: flex;
+.jump {
+  display: block;
+  margin: 0.5rem auto;
+  font-size: 0.75rem;
+  text-align: center;
+
+  @include large {
+    display: none;
+  }
 }
 
-.main-column {
-  flex: 1 1 100%;
-  margin-left: 1rem;
+#navigation-jump {
+  margin-top: -0.5rem;
 }
 
-.sidebar {
+#navigation {
   order: -1;
   flex: 0 0 8rem;
   text-align: center;
@@ -93,11 +135,6 @@ th, td {
   }
 }
 
-.sidebar-logo {
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
 .links {
   margin-top: 2rem;
   text-align: center;
@@ -105,24 +142,18 @@ th, td {
 
 .links > * {
   padding: 0 0.5rem;
-  border-left: 1px solid #a37fa2;
+  border-left: 1px solid $purple;
 
   &:first-child {
     border-left: none;
   }
 }
 
-.action-set {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .action {
   font-family: inherit;
   font-size: inherit;
-  color: #fff;
-  background-color: #a37fa2;
+  color: $white;
+  background-color: $purple;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   display: inline-block;
@@ -132,33 +163,8 @@ th, td {
   &:visited,
   &:hover,
   &:active {
-    color: #fff;
+    color: $white;
     text-decoration: none;
-  }
-}
-
-.or {
-  text-transform: uppercase;
-  color: #a37fa2;
-  margin: 0.5rem 0;
-  position: relative;
-
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    border-top: 2px solid #a37fa2;
-    position: absolute;
-    top: 50%;
-    width: 2rem;
-  }
-
-  &:before {
-    left: -2.5rem;
-  }
-
-  &:after {
-    right: -2.5rem;
   }
 }
 
@@ -169,115 +175,45 @@ th, td {
   width: 15rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background: #fbb;
-}
-
-label {
-  margin-top: 0.5rem;
-  display: inline-block;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &.required:after {
-    content: '(required)';
-    color: #f00;
-    font-size: 0.75rem;
-    margin-left: 0.5rem;
-  }
-}
-
-.field_with_errors {
-  margin-top: 0.5rem;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-input,
-select {
-  width: 100%;
-  max-width: 20rem;
-  font-size: 1rem;
-}
-
-textarea {
-  width: 100%;
-  height: 10rem;
-  font-size: 1rem;
-}
-
-button {
-  margin-top: 1rem;
+  background: $pink;
 }
 
 .labeled-value {
   margin: 0.5rem 0;
 }
 
-.errors {
-  width: 25rem;
-  margin: 0 auto 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background-color: #fbb;
-
-  :first-child {
-    margin-top: 0;
-  }
-
-  :last-child {
-    margin-bottom: 0;
-  }
-}
-
-.media-container {
-  display: flex;
-  margin: 1rem 0;
-}
-
-.media-element {
-  width: 14rem;
-  height: 100%;
-}
-
-.media-info {
-  flex-grow: 1;
-  margin-left: 1rem;
-
-  > :first-child {
-    margin-top: 0;
-  }
-}
-
 .product-image {
   display: block;
   max-height: 20rem;
+  max-width: 100%;
   margin: 0 auto 1rem auto;
 }
 
 .category {
   font-size: 0.8rem;
-  background-color: #479b45;
+  background-color: $green;
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   display: inline-block;
   clear: both;
   transition: 0.5s;
 
+  // The padding and background makes the links look crowded if the list of
+  // categories is long enough to wrap to a second line. The margin makes the
+  // line spacing look normal.
+  margin-bottom: 0.5rem;
+
   &:link,
   &:visited,
   &:hover,
   &:active {
-    color: #fff;
+    color: $white;
     text-decoration: none;
   }
 
   &:hover,
   &:active {
-    background-color: #23408f;
+    background-color: $blue;
   }
 }
 
@@ -288,14 +224,16 @@ button {
 .thumbnails {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 
   a {
-    margin: 0 1rem 1rem 0;
+    margin-bottom: 1rem;
   }
 }
 
 .thumbnail {
-  height: 10rem;
+  max-height: 10rem;
+  max-width: 100%;
 }
 
 .customer-messages tbody tr {
@@ -315,34 +253,4 @@ button {
   position: absolute;
   width: 1px;
   white-space: nowrap;
-}
-
-html .facebook-follow {
-  display: inline-block;
-  height: 23px;
-  padding: 0 8px;
-  border-radius: 4px;
-  border: 1px solid #4267b2;
-  background: #4267b2;
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: bold;
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-
-  .facebook-follow-logo {
-    position: relative;
-    top: 3px;
-    left: -3px;
-    height: 16px;
-    width: 16px;
-  }
-}
-
-hr {
-  margin: 1rem 0;
-  height: 0.15rem;
-  border: none;
-  background: url(/assets/gradient.jpg) bottom right no-repeat;
 }

@@ -1,0 +1,62 @@
+
+label {
+  margin-top: 0.5rem;
+  display: inline-block;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &.required:after {
+    content: '(required)';
+    color: $red;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.field_with_errors {
+  margin-top: 0.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid $black;
+  font-size: 1rem;
+}
+
+input,
+select {
+  max-width: 20rem;
+}
+
+textarea {
+  height: 10rem;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+.errors {
+  width: 25rem;
+  margin: 0 auto 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: $pink;
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}

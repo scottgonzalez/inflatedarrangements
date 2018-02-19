@@ -17,3 +17,7 @@
 <% if flash[:alert] %>
   <div class="alert"><%= flash[:alert] %></div>
 <% end %>
+
+<% unless local_assigns[:no_nav] %>
+  <a href="#navigation" id="navigation-jump" class="jump">Jump to navigation.</a>
+<% end %>

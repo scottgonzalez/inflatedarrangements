@@ -1,0 +1,28 @@
+.media-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+
+  @include large {
+    flex-direction: row;
+  }
+}
+
+.media-element {
+  max-height: 20rem;
+  max-width: 100%;
+
+  @include large {
+    max-height: none;
+    max-width: 14rem;
+  }
+}
+
+.media-info {
+  flex-grow: 1;
+  margin-left: 1rem;
+
+  > :first-child {
+    margin-top: 0;
+  }
+}

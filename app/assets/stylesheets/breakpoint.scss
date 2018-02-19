@@ -1,0 +1,20 @@
+$large-size: 40em;
+$small-size: $large-size - 0.001;
+
+@mixin large {
+  @media (min-width: $large-size) {
+    @content;
+  }
+}
+
+@media (max-width: $small-size) {
+  .hide-small {
+    display: none;
+  }
+}
+
+@include large {
+  .hide-large {
+    display: none;
+  }
+}

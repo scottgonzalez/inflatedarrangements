@@ -1,19 +1,23 @@
 <%= render "shared/header" %>
 
-<main class="flex">
-  <div class="main-column">
+<div class="body">
+  <main>
     <h1><%= yield :title %></h1>
     <div class="main-content">
       <%= yield %>
     </div>
-  </div>
-  <div class="sidebar">
-    <a href="/"><img class="sidebar-logo" src="/assets/logo.png" alt="Home"></a>
+  </main>
+  <div id="navigation">
+    <hr class="hide-large">
+    <a href="/" id="navigation-home">
+      <img src="/assets/logo.png" class="hide-small" alt="home">
+      <span class="hide-large">home</span>
+    </a>
     <a href="/products">products</a>
     <a href="/photos">photo gallery</a>
     <a href="/contact">contact us</a>
     <%= render "shared/facebook_follow" %>
   </div>
-</main>
+</div>
 
 <%= render "shared/footer" %>

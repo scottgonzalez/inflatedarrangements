@@ -16,6 +16,7 @@ Things you may want to cover:
 | Name | Description |
 |------|-------------|
 | ADMIN_PASSWORD | The administrator's password. |
+| GOOGLE_ANALYTICS_TRACKING_ID | Google Analytics tracking ID. |
 | SMTP_ADDRESS | Host address for the SMTP server. |
 | SMTP_DOMAIN | The domain for the SMTP server. |
 | SMTP_PASSWORD | The password for the SMTP account. |
