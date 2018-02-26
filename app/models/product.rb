@@ -19,4 +19,10 @@ class Product < ApplicationRecord
         }
       )
   end
+
+  def typical_price
+    if /\$((\d+)(\.\d+)?)(\s|$)/ =~ price
+      $LAST_MATCH_INFO[1].to_f
+    end
+  end
 end

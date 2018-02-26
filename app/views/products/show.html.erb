@@ -1,6 +1,8 @@
 <% content_for :title, @product.name %>
 
-<div>
+<div itemscope itemtype="http://schema.org/Product">
+  <div class="visually-hidden" itemprop="name"><%= @product.name %></div>
+
   <div class="labeled-value">
     <span class="visually-hidden">Categories:</span>
     <% @product.categories.each do |category| %>
@@ -8,7 +10,7 @@
     <% end %>
   </div>
 
-  <img class="product-image" src="<%= @photo.image.url %>" alt="">
+  <img class="product-image" src="<%= @photo.image.url %>" itemprop="image" alt="">
 
   <a href="#description" class="jump">Jump to description.</a>
 
@@ -21,8 +23,25 @@
     <% end %>
   </div>
 
-  <div id="description">
-    <div class="labeled-value">Price: <%= @product.price %></div>
-    <div><%= @product.description.html_safe %></div>
+  <div id="description" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <div class="labeled-value">
+      Price:
+      <%
+        # Products like Custom Designs don't have a fixed or typical price.
+        # We should be able to list an arbitrary min and max price, but for
+        # some reason a fixed price still seems to be required even when
+        # providing a price range. As a result, these products won't get a
+        # price exposed, which likely makes the entire offer invalid.
+      %>
+      <% if @product.typical_price %>
+        <span itemprop="priceCurrency" content="USD"></span>
+        <span itemprop="price" content="<%= @product.typical_price %>">
+      <% end %>
+      <%= @product.price %>
+      <% if @product.typical_price %>
+        </span>
+      <% end %>
+    </div>
+    <div itemprop="description"><%= @product.description.html_safe %></div>
   </div>
 </div>
