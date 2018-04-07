@@ -4,5 +4,6 @@ class HomeController < ApplicationController
   public_actions :index
 
   def index
+    @photo = Photo.find 15
   end
 end
