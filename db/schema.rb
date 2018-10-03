@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131212430) do
+ActiveRecord::Schema.define(version: 20181003224953) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180131212430) do
     t.string   "description", default: "", null: false
     t.integer  "width"
     t.integer  "height"
+    t.boolean  "feature"
   end
 
   create_table "product_categories", force: :cascade do |t|

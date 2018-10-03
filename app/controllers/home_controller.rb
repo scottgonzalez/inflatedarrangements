@@ -4,6 +4,6 @@ class HomeController < ApplicationController
   public_actions :index
 
   def index
-    @photo = Photo.find 15
+    @photo = Photo.where(feature: true).order('RANDOM()').limit(1).first
   end
 end
