@@ -193,6 +193,11 @@ th, td {
   margin: 0 auto 1rem auto;
 }
 
+.short-image {
+  @extend .product-image;
+  max-height: 10rem;
+}
+
 .category {
   font-size: 0.8rem;
   background-color: $green;

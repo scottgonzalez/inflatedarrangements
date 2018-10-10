@@ -1,13 +1,21 @@
-<header>
+<header id="home-header">
   <h1><img src="/assets/logo-full.png" alt="Inflated Arrangements"></h1>
 </header>
 
 <main class="body body-home">
-  <p class="center">Serving York, PA and the surrounding areas.</p>
-
-  <img class='product-image' src='<%= @photo.image.url %>' alt=''>
-
   <p>Balloon decorations are a great addition to any occassion and are sure to be enjoyed by people of all ages. From birthday parties to corporate events, holiday parties to fundraisers; we'll work with you to create the perfect arrangement for any event.</p>
+
+  <%= link_to (
+    if @photo.products.count == 1
+      product_path(@photo.products.first, { photo: @photo })
+    else
+      @photo
+    end
+  ) do %>
+    <img class="product-image" src="<%= @photo.image.url %>" alt="<%= @photo.description %>">
+  <% end %>
+
+  <p class="center">Serving South Central Pennsylvania and the surrounding areas.</p>
 
   <div class="action-set">
     <a class="action" href="/contact">Book your event now</a>
@@ -16,6 +24,7 @@
   </div>
 
   <div class="links">
+    <a href="/about">About Us</a>
     <a href="/contact">Contact Us</a>
     <span><%= render "shared/facebook_follow" %></span>
   </div>

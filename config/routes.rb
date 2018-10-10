@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'home#index'
 
+  get '/about' => 'about#index'
+
   get '/admin' => 'admin#index'
 
   get '/contact' => 'contact#index'
