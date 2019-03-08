@@ -1,4 +1,11 @@
 <% content_for :title, @product.name %>
+<% open_graph(
+  title: @product.name,
+  description: @product.description.html_safe,
+  image_url: asset_url(@photo.image.url),
+  image_width: @photo.width,
+  image_height: @photo.height
+) %>
 
 <div itemscope itemtype="http://schema.org/Product">
   <div class="visually-hidden" itemprop="name"><%= @product.name %></div>
